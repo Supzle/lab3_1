@@ -7,9 +7,6 @@ public class StartUp {
 		ComandView view = new ComandView();
 		while(true){
 			view.printFirstMenu();
-		}
-		
-		
-		
+		}				
 	}
 }

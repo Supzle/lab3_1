@@ -4,28 +4,15 @@ import java.util.List;
 import java.util.Scanner;
 
 import Control.Control;
+import Control.Display;
 
 public class ComandView {
 	Control control = new Control();
+	Display display = new Display(this);
 	Scanner sc = new Scanner(System.in);
 	int type;
-	
-	public void printFirstMenu(){
-		System.out.println("1) Create a new Survey\n"
-				+ "2) Create a new Test\n"
-				+ "3) Display Survey\n"
-				+ "4) Display a Test \n"
-				+ "5) Save a Survey\n"
-				+ "6) Save a Test \n"
-				+ "7) Modify a Survey\n"
-				+ "8) Modify a Test\n"
-				+ "9) Take a Survey\n"
-				+ "10)Take a Test\n"		
-				+ "11)Look survey outcome\n"
-				+ "12)Look test outcome\n"
-				+ "13) Quit\n"
-		);
-		int next = sc.nextInt();
+	public void action_choose(int next) {
+		next++;
 		switch(next){
 		case 1: this.createSurvey();break;
 		case 2: this.createTest();break;
@@ -41,6 +28,9 @@ public class ComandView {
 		case 12:this.displayOutcome(1);break;
 		case 13:System.exit(0);
 		}
+	}
+	public void printFirstMenu(){
+		display.printFirstMenu();		
 	}
 	
 	public void displayOutcome(int type){
